@@ -5,7 +5,6 @@ export const HeaderNav = styled(motion.div)`
   display: flex;
   padding: 5px 6.5rem 5px 6.5rem;
   justify-content: space-between;
-  border-bottom: 1px solid black;
   position: fixed;
   top: 0;
   left: 0;
@@ -38,7 +37,7 @@ export const Menu = styled.div`
       margin-right: 30px;
       padding: 0 1.2rem 0 1.2rem;
 
-      a {
+      .link {
         text-decoration: none;
         color: #ccc;
         border: none;
@@ -48,12 +47,15 @@ export const Menu = styled.div`
           color: #fabf00;
         }
       }
+      a.current {
+        color: #fabf00;
+      }
     }
   }
 `;
 
 export const Input = styled.input`
-  height: 40px;
+  height: 35px;
   padding-left: 10px;
   border: 1px solid #ccc;
   border-top-left-radius: 5px;
@@ -72,15 +74,15 @@ export const Search = styled.div`
 `;
 
 export const Icon = styled.div`
+  height: 35px;
   padding: 10px;
-  height: 40px;
-  background: #fff;
+  background: #fabf00;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   transition: background 0.7s;
 
   &:hover {
-    background: #fabf00;
+    background: #cc9c00;
     cursor: pointer;
   }
 `;

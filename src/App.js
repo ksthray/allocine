@@ -1,6 +1,9 @@
 import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -8,7 +11,8 @@ import { GlobalStyles } from "./global/global";
 import { theme } from "./global/theme";
 
 import Home from "./pages/Index";
-import Cinema from "./pages/Cinema";
+import Details from "./pages/Details";
+import ResultPage from "./pages/ResultSearch";
 
 function App() {
   return (
@@ -19,7 +23,8 @@ function App() {
           <>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/cinema" component={Cinema} />
+              <Route path="/movie/:id" component={Details} />
+              <Route path="/search/:slug" component={ResultPage} />
             </Switch>
           </>
         </Router>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+import { useHistory } from "react-router-dom";
 //import logo allocine
 import logo from "../images/logo.jpg";
 //import icon search
@@ -14,7 +15,7 @@ import {
   Icon,
 } from "../styles/HeaderStyle";
 //react router dom link
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const parent = {
   initial: { y: -100 },
@@ -28,9 +29,48 @@ const parent = {
 };
 
 const Header = () => {
+  const [query, setQuery] = useState("");
+  const history = useHistory();
+  const searchQuery = (query) => {
+    history.push(`/search/${query}`);
+    window.location.reload(false);
+  };
+
+  const [change, setChange] = useState({
+    background: "transparent",
+    boxShadow: "",
+    transition: "background 0.6s",
+  });
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const isChange = window.scrollY < 150;
+      if (isChange !== true) {
+        setChange({
+          background: "#fff",
+          boxShadow: "5px 5px 20px 5px rgba(0,0,0,0.4)",
+          transition: "background 0.6s",
+        });
+      } else {
+        setChange({
+          background: "transparent",
+          boxShadow: "",
+          transition: "background 0.6s",
+        });
+      }
+
+      return () => {
+        window.removeEventListener("scroll");
+      };
+    });
+  }, []);
   return (
     <>
-      <HeaderNav variants={parent} initial="initial" animate="animate">
+      <HeaderNav
+        style={change}
+        variants={parent}
+        initial="initial"
+        animate="animate"
+      >
         <Link className="link" to="/">
           <Logo>
             <img src={logo} alt="logo" />
@@ -40,22 +80,55 @@ const Header = () => {
           <Menu>
             <ul>
               <li>
-                <a href="/cinema">Cinémé</a>
+                <NavLink
+                  className="link"
+                  exact
+                  activeClassName="current"
+                  to="/"
+                >
+                  Cinéma
+                </NavLink>
               </li>
               <li>
-                <a href="/serie">Série</a>
+                <NavLink
+                  className="link"
+                  exact
+                  activeClassName="current"
+                  to="/serie"
+                >
+                  Série
+                </NavLink>
               </li>
               <li>
-                <a href="/news-films">News films</a>
+                <NavLink
+                  className="link"
+                  exact
+                  activeClassName="current"
+                  to="/news-films"
+                >
+                  News films
+                </NavLink>
               </li>
               <li>
-                <a href="/news-series">News série</a>
+                <NavLink
+                  className="link"
+                  exact
+                  activeClassName="current"
+                  to="/news-series"
+                >
+                  News série
+                </NavLink>
               </li>
             </ul>
           </Menu>
           <Search>
-            <Input placeholder="rechercher un film" />
-            <Icon>
+            <Input
+              placeholder="rechercher un film"
+              name="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <Icon onClick={() => searchQuery(query)}>
               <FaSearch />
             </Icon>
           </Search>
