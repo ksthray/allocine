@@ -14,7 +14,7 @@ import logo from "../images/logo.jpg";
 
 const ContainerFooter = styled.div`
   padding-top: 40px;
-  background: #051b2f;
+  background: ${(props) => props.theme.darkLittle};
   width: 100%;
   color: white;
   div {
@@ -24,18 +24,36 @@ const ContainerFooter = styled.div`
   .first {
     img {
       width: 200px;
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        width: 120px;
+      }
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        width: 100px;
+      }
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
     }
   }
   .second {
     p {
       font-size: 0.9rem;
       letter-spacing: 1px;
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        font-size: 0.7rem;
+      }
     }
     h5 {
       margin-bottom: 20px;
       color: #fabf00;
       font-size: 1.1.rem;
       font-weight: 650;
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
     }
     div {
       display: flex;
@@ -43,12 +61,19 @@ const ContainerFooter = styled.div`
     }
   }
   .third {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     h5 {
       margin-bottom: 20px;
       color: #fabf00;
       font-size: 1.1.rem;
       font-weight: 650;
       text-align: center;
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+      }
     }
     .reseau-social {
       display: flex;
@@ -62,6 +87,11 @@ const ContainerFooter = styled.div`
         padding: 10px;
         color: #fff;
         border-radius: 50%;
+        @media (max-width: ${({ theme }) => theme.tablet}) {
+          margin-bottom: 2.5px;
+          margin-right: 5px;
+          font-size: 2rem;
+        }
       }
     }
   }

@@ -13,12 +13,23 @@ export const HeaderNav = styled(motion.div)`
 
   div {
     display: flex;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.tablet}) {
+    padding: 5px 4.5rem 5px 4.5rem;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 5px 3rem 5px 3rem;
   }
 `;
 
 export const Logo = styled.div`
   img {
     width: 60px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      width: 40px;
+    }
   }
 `;
 
@@ -71,18 +82,21 @@ export const Search = styled.div`
   display: flex;
   align-items: center;
   margin-left: 30px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin-right: 60px;
+  }
 `;
 
 export const Icon = styled.div`
   height: 35px;
   padding: 10px;
-  background: #fabf00;
+  background: ${(props) => props.theme.orange};
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   transition: background 0.7s;
 
   &:hover {
-    background: #cc9c00;
+    background: ${(props) => props.theme.orangeHover};
     cursor: pointer;
   }
 `;

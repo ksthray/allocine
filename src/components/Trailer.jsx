@@ -8,7 +8,7 @@ import { dataTrailer } from "../data";
 import Title from "./TitleSection";
 
 const Section = styled.div`
-  background-color: #051321;
+  background-color: ${(props) => props.theme.primaryDrak};
   padding-bottom: 20px;
   div {
     width: 95%;
@@ -17,6 +17,14 @@ const Section = styled.div`
     .col-right {
       width: 100%;
       height: 400px;
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        height: 300px;
+      }
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        height: auto;
+        display: flex;
+        margin-top: 10px;
+      }
       ::-webkit-scrollbar {
         width: 5px;
       }
@@ -122,19 +130,38 @@ const ContainerShowTrailer = styled.div`
   .non-movie {
     width: 100%;
     height: 400px;
-    background: #051b2f;
+    background: ${(props) => props.theme.darkLittle};
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: ${({ theme }) => theme.tablet}) {
+      height: 300px;
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      height: 250px;
+    }
 
     .icon {
       font-size: 4rem;
     }
   }
   .movie {
+    @media (max-width: ${({ theme }) => theme.tablet}) {
+      iframe {
+        height: 300px;
+      }
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      iframe {
+        height: 250px;
+      }
+    }
     p {
       width: 500px;
       color: #ccc;
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        width: 300px;
+      }
     }
   }
 `;
@@ -160,6 +187,9 @@ const ContainerTrailers = styled.div`
       cursor: pointer;
       opacity: 10;
     }
+    @media (max-width: ${({ theme }) => theme.tablet}) {
+      height: 80px;
+    }
   }
   .container-icon {
     display: flex;
@@ -170,6 +200,12 @@ const ContainerTrailers = styled.div`
     .icon {
       color: white;
       font-size: 2rem;
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        font-size: 1.2;
+      }
+    }
+    @media (max-width: ${({ theme }) => theme.tablet}) {
+      top: -55px;
     }
   }
 `;

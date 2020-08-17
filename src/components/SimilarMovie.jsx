@@ -40,7 +40,7 @@ const SimilarMovie = ({ idFilm }) => {
 
   useEffect(() => {
     fetchSimilarMovie();
-  });
+  }, []);
   const history = useHistory();
   const handleClick = (link) => {
     history.push(`/movie/${link}`);

@@ -39,6 +39,7 @@ const Layout = ({ children }) => {
   return (
     <div onMouseMove={mousePos}>
       <Cursor ref={cursorRef} />
+
       <Header />
       <div>{children}</div>
       <Footer />

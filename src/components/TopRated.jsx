@@ -9,7 +9,7 @@ import Title from "./TitleSection";
 import { dataApi } from "../api";
 
 const Section = styled.div`
-  background-color: #051b2f;
+  background-color: ${(props) => props.theme.darkLittle};
   div {
     width: 95%;
     margin: 0 auto;

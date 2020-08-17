@@ -8,6 +8,12 @@ import photo from "../images/steven.jpg";
 const CardContainer = styled(motion.div)`
   width: 300px;
   background: #fff;
+  @media (max-width: ${({ theme }) => theme.tablet}) {
+    width: 230px;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: none;
+  }
 `;
 const CardImg = styled.div`
   img {
@@ -17,10 +23,16 @@ const CardImg = styled.div`
 const CardBody = styled.div`
   background: #fff;
   padding: 20px;
+  @media (max-width: ${({ theme }) => theme.tablet}) {
+    padding: 10px;
+  }
 `;
 const CardTitle = styled.h1`
   color: #000;
   font-size: 1.3rem;
+  @media (max-width: ${({ theme }) => theme.tablet}) {
+    font-size: 1remx;
+  }
 
   strong {
     text-transform: uppercase;
@@ -30,11 +42,14 @@ const CardText = styled.p`
   font-size: 1rem;
   color: #454545;
   margin: 20px 0 20px 0;
+  @media (max-width: ${({ theme }) => theme.tablet}) {
+    font-size: 0.8rem;
+  }
 `;
 
 const Button = styled.div`
   width: 100%;
-  background: #fabf00;
+  background: ${(props) => props.theme.orange};
   color: #fff;
   font-size: 1.1rem;
   padding: 10px;
@@ -43,7 +58,7 @@ const Button = styled.div`
   cursor: pointer;
   transition: background 0.7s;
   &:hover {
-    background: #cc9c00;
+    background: ${(props) => props.theme.orangeHover};
   }
 `;
 const card = {
@@ -66,7 +81,7 @@ const CardPub = () => {
         </CardImg>
         <CardBody>
           <CardTitle>
-            Film Comics <strong>Karate Kid</strong>{" "}
+            Avengers :<strong>Endgame</strong>{" "}
           </CardTitle>
           <CardText>
             Le Titan Thanos, ayant réussi à s'approprier les six Pierres d

@@ -14,14 +14,26 @@ const MovieDetailUi = (props) => {
     genreFilm,
     production,
   } = props;
+
   const ContainerMovie = styled.div`
     width: 100%;
+    .image {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
     .jumbo {
       background: url(${background}) no-repeat fixed bottom;
       background-size: cover;
       height: 100vh;
       position: relative;
       z-index: -3;
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        height: 50vh;
+      }
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        height: 80vh;
+      }
     }
     .overlay-background {
       background-color: rgba(0, 0, 0, 0.6);
@@ -35,6 +47,12 @@ const MovieDetailUi = (props) => {
     img {
       width: 300px;
       box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.7);
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        width: 200px;
+      }
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        width: 250px;
+      }
     }
   `;
   const Main = styled.div`
@@ -51,6 +69,27 @@ const MovieDetailUi = (props) => {
       strong {
         color: #fabf00;
       }
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        font-size: 1.2rem;
+      }
+    }
+    h4 {
+      @media (max-width: ${({ theme }) => theme.tablet}) {
+        font-size: 1.1rem;
+      }
+    }
+    .overlay-detail {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        text-align: center;
+      }
+
+      p {
+        @media (max-width: ${({ theme }) => theme.tablet}) {
+          font-size: 0.9rem;
+        }
+      }
     }
   `;
   return (
@@ -62,51 +101,57 @@ const MovieDetailUi = (props) => {
             <Main>
               <Row>
                 <Col md={4}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${affiche}`}
-                    alt=""
-                  />
+                  <div className="image">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${affiche}`}
+                      alt=""
+                    />
+                  </div>
                 </Col>
                 <Col md={8}>
-                  <h3 className="display-5">
-                    Titre du film :{" "}
-                    <strong className="text-uppercase">{titre}</strong>{" "}
-                  </h3>
-                  <p className="lead">{desc} </p>
-                  <Row>
-                    <Col md={6}>
-                      <div>
-                        <h4 className="text-uppercase">Détail film</h4>
+                  <div className="overlay-detail">
+                    <h3 className="display-5">
+                      Titre du film :{" "}
+                      <strong className="text-uppercase">{titre}</strong>{" "}
+                    </h3>
+                    <p className="lead">{desc} </p>
+                    <Row>
+                      <Col md={6}>
                         <div>
-                          <p>
-                            Langue original :{" "}
-                            <strong className="text-uppercase">{lang}</strong>{" "}
-                          </p>
-                          <p>
-                            La date du sortie : <strong>{date}</strong>{" "}
-                          </p>
-                          <span>
-                            Genre :{" "}
-                            {genreFilm.map((genre) => (
-                              <span>
-                                <strong>{genre.name}</strong>{" "}
-                              </span>
-                            ))}
-                          </span>
-                        </div>
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div>
-                        <h4 className="text-uppercase">Maison de production</h4>
-                        {production.map((prod) => (
+                          <h4 className="text-uppercase">Détail film</h4>
                           <div>
-                            <strong>{prod.name} </strong>
+                            <p>
+                              Langue original :{" "}
+                              <strong className="text-uppercase">{lang}</strong>{" "}
+                            </p>
+                            <p>
+                              La date du sortie : <strong>{date}</strong>{" "}
+                            </p>
+                            <span>
+                              Genre :{" "}
+                              {genreFilm.map((genre) => (
+                                <span>
+                                  <strong>{genre.name}</strong>{" "}
+                                </span>
+                              ))}
+                            </span>
                           </div>
-                        ))}
-                      </div>
-                    </Col>
-                  </Row>
+                        </div>
+                      </Col>
+                      <Col md={6}>
+                        <div>
+                          <h4 className="text-uppercase">
+                            Maison de production
+                          </h4>
+                          {production.map((prod) => (
+                            <div>
+                              <strong>{prod.name} </strong>
+                            </div>
+                          ))}
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
                 </Col>
               </Row>
             </Main>

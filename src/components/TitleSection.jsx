@@ -7,7 +7,7 @@ const Title = styled.div`
   h2 {
     text-align: center;
     padding: 1.3rem;
-    color: #fabf00;
+    color: ${(props) => props.theme.orange};
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: uppercase;
