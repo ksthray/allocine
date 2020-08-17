@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { motion } from "framer-motion";
+
 import axios from "axios";
 import styled from "styled-components";
 import { Row, Col } from "reactstrap";
@@ -64,7 +66,7 @@ const CardUiFilm = ({ image, titre }) => {
   );
 };
 
-const CardContainer = styled.div`
+const CardContainer = styled(motion.div)`
   width: 100%;
   transition: box-shadow 0.7s;
 

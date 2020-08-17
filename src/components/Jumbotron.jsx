@@ -24,7 +24,7 @@ const JumboStyle = styled.div`
     height: 55.5vh;
   }
   @media (max-width: 320px) {
-    height: 75.5vh;
+    height: 55.5vh;
   }
 `;
 
@@ -50,7 +50,7 @@ const Overlay = styled.div`
     height: 55.5vh;
   }
   @media (max-width: 320px) {
-    height: 75.5vh;
+    height: 55.5vh;
   }
 `;
 
@@ -167,7 +167,7 @@ const VideoStyle = styled.div`
     height: 55.5vh;
   }
   @media (max-width: 320px) {
-    height: 75.5vh;
+    height: 55.5vh;
   }
 
   video {

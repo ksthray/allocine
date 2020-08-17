@@ -21,6 +21,16 @@ export const HeaderNav = styled(motion.div)`
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 5px 3rem 5px 3rem;
+    height: 50px;
+  }
+  @media (max-width: 474px) {
+    height: 50px;
+  }
+  @media (max-width: 375px) {
+    height: 50px;
+  }
+  @media (max-width: 320px) {
+    height: 50px;
   }
 `;
 
@@ -29,6 +39,15 @@ export const Logo = styled.div`
     width: 60px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       width: 40px;
+    }
+    @media (max-width: 474px) {
+      height: 40px;
+    }
+    @media (max-width: 375px) {
+      height: 40px;
+    }
+    @media (max-width: 320px) {
+      height: 40px;
     }
   }
 `;
@@ -43,6 +62,18 @@ export const Menu = styled.div`
     top: 10px;
     padding: 10px;
     margin-right: 30px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      display: none;
+    }
+    @media (max-width: 474px) {
+      display: none;
+    }
+    @media (max-width: 375px) {
+      display: none;
+    }
+    @media (max-width: 320px) {
+      display: none;
+    }
     li {
       list-style-type: none;
       margin-right: 30px;

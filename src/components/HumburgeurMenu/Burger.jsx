@@ -29,6 +29,19 @@ const StyledBurger = styled.button`
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
+    display: none;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      display: block;
+    }
+    @media (max-width: 474px) {
+      display: block;
+    }
+    @media (max-width: 375px) {
+      display: block;
+    }
+    @media (max-width: 320px) {
+      display: block;
+    }
 
     :first-child {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};

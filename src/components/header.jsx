@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import Media from "react-media";
-
 import { useHistory } from "react-router-dom";
 //import logo allocine
 import logo from "../images/logo.jpg";
@@ -84,65 +82,43 @@ const Header = () => {
           </Logo>
         </Link>
         <div>
-          <Media queries={{ mobile: { maxWidth: 575 } }}>
-            {(matches) =>
-              matches.mobile ? (
-                <div>
-                  <Search>
-                    <Input
-                      placeholder="rechercher un film"
-                      name="search"
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                    />
-                    <Icon onClick={() => searchQuery(query)}>
-                      <FaSearch />
-                    </Icon>
-                  </Search>
-                  <MenuHumb open={open} setOpen={setOpen} />
-                  <Burger open={open} setOpen={setOpen} />
-                </div>
-              ) : (
-                <>
-                  <Menu>
-                    <ul>
-                      <li>
-                        <NavLink
-                          className="link"
-                          exact
-                          activeClassName="current"
-                          to="/"
-                        >
-                          Cinéma
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          className="link"
-                          exact
-                          activeClassName="current"
-                          to="/serie"
-                        >
-                          Série
-                        </NavLink>
-                      </li>
-                    </ul>
-                  </Menu>
-                  <Search>
-                    <Input
-                      placeholder="rechercher un film"
-                      name="search"
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                    />
-                    <Icon onClick={() => searchQuery(query)}>
-                      <FaSearch />
-                    </Icon>
-                  </Search>
-                </>
-              )
-            }
-          </Media>
+          <Menu>
+            <ul>
+              <li>
+                <NavLink
+                  className="link"
+                  exact
+                  activeClassName="current"
+                  to="/"
+                >
+                  Cinéma
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className="link"
+                  exact
+                  activeClassName="current"
+                  to="/serie"
+                >
+                  Série
+                </NavLink>
+              </li>
+            </ul>
+          </Menu>
+          <Search>
+            <Input
+              placeholder="rechercher un film"
+              name="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <Icon onClick={() => searchQuery(query)}>
+              <FaSearch />
+            </Icon>
+          </Search>
+          <MenuHumb open={open} setOpen={setOpen} />
+          <Burger open={open} setOpen={setOpen} />
         </div>
       </HeaderNav>
     </>

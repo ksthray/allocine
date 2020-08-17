@@ -3,6 +3,7 @@ import avatar from "./images/avatar2.png";
 import blood from "./images/bloodquantum.jpg";
 import espen from "./images/espen2image.jpg";
 import snk from "./images/attaquedetitan.jpg";
+import demon from "./images/demonslayer.png";
 
 export const dataTrailer = [
   {
@@ -49,5 +50,14 @@ export const dataTrailer = [
     overview:
       "L'Attaque des Titans, ou Shingeki no Kyojin, rencontre un succès phénoménal depuis ses débuts. Que ce soit en version papier ou en anime, les ",
     date: "25 décembre 2020",
+  },
+  {
+    id: "6",
+    titre: "Kimetsu no Yaiba : Demon Slayer",
+    poster_path: `${demon}`,
+    video: "https://www.youtube.com/embed/ATJYac_dORw",
+    overview:
+      "Demon Slayer: Kimetsu no Yaiba the Movie: Mugen Train est un prochain film d'animation japonais de 2020 basé sur le manga Demon Slayer: Kimetsu no Yaiba de Koyoharu",
+    date: "16 octobre 2020",
   },
 ];
