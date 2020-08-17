@@ -34,6 +34,15 @@ const MovieDetailUi = (props) => {
       @media (max-width: ${({ theme }) => theme.mobile}) {
         height: 80vh;
       }
+      @media (max-width: 474px) {
+        height: 90vh;
+      }
+      @media (max-width: 375px) {
+        height: 100vh;
+      }
+      @media (max-width: 320px) {
+        height: 150vh;
+      }
     }
     .overlay-background {
       background-color: rgba(0, 0, 0, 0.6);
@@ -52,6 +61,15 @@ const MovieDetailUi = (props) => {
       }
       @media (max-width: ${({ theme }) => theme.mobile}) {
         width: 250px;
+      }
+      @media (max-width: 474px) {
+        width: 230px;
+      }
+      @media (max-width: 375px) {
+        width: 200px;
+      }
+      @media (max-width: 320px) {
+        width: 200px;
       }
     }
   `;

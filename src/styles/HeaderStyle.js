@@ -77,6 +77,18 @@ export const Input = styled.input`
     border: none;
     border: 1px solid #ccc;
   }
+  @media (max-width: 474px) {
+    height: 30px;
+    width: 160px;
+  }
+  @media (max-width: 375px) {
+    height: 25px;
+    width: 150px;
+  }
+  @media (max-width: 320px) {
+    height: 25px;
+    width: 100px;
+  }
 `;
 export const Search = styled.div`
   display: flex;
@@ -84,6 +96,14 @@ export const Search = styled.div`
   margin-left: 30px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-right: 60px;
+  }
+  @media (max-width: 474px) {
+    margin-right: 60px;
+  }
+  @media (max-width: 375px) {
+    margin-right: 300px;
+  }
+  @media (max-width: 320px) {
   }
 `;
 
@@ -94,6 +114,17 @@ export const Icon = styled.div`
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   transition: background 0.7s;
+  @media (max-width: 474px) {
+    height: 30px;
+  }
+  @media (max-width: 375px) {
+    height: 25px;
+    padding: 5px;
+  }
+  @media (max-width: 320px) {
+    height: 25px;
+    padding: 5px;
+  }
 
   &:hover {
     background: ${(props) => props.theme.orangeHover};

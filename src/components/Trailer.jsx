@@ -140,6 +140,15 @@ const ContainerShowTrailer = styled.div`
     @media (max-width: ${({ theme }) => theme.mobile}) {
       height: 250px;
     }
+    @media (max-width: 474px) {
+      height: 240px;
+    }
+    @media (max-width: 375px) {
+      height: 180px;
+    }
+    @media (max-width: 320px) {
+      height: 160px;
+    }
 
     .icon {
       font-size: 4rem;

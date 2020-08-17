@@ -17,6 +17,15 @@ const JumboStyle = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     height: 35vh;
   }
+  @media (max-width: 474px) {
+    height: 45.5vh;
+  }
+  @media (max-width: 375px) {
+    height: 55.5vh;
+  }
+  @media (max-width: 320px) {
+    height: 75.5vh;
+  }
 `;
 
 const Overlay = styled.div`
@@ -33,6 +42,15 @@ const Overlay = styled.div`
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     height: 35.5vh;
+  }
+  @media (max-width: 474px) {
+    height: 45.5vh;
+  }
+  @media (max-width: 375px) {
+    height: 55.5vh;
+  }
+  @media (max-width: 320px) {
+    height: 75.5vh;
   }
 `;
 
@@ -141,6 +159,15 @@ const VideoStyle = styled.div`
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     height: 35vh;
+  }
+  @media (max-width: 474px) {
+    height: 45.5vh;
+  }
+  @media (max-width: 375px) {
+    height: 55.5vh;
+  }
+  @media (max-width: 320px) {
+    height: 75.5vh;
   }
 
   video {
