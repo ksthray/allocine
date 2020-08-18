@@ -7,99 +7,12 @@ import { Container, Row, Col } from "reactstrap";
 import video from "../videos/endgame.mp4";
 import Card from "./CardPub";
 
-const JumboStyle = styled.div`
-  height: 100vh;
-  color: #fff;
-
-  @media (max-width: ${({ theme }) => theme.tablet}) {
-    height: 50vh;
-  }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    height: 35vh;
-  }
-  @media (max-width: 474px) {
-    height: 45.5vh;
-  }
-  @media (max-width: 375px) {
-    height: 55.5vh;
-  }
-  @media (max-width: 320px) {
-    height: 55.5vh;
-  }
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 1;
-  overflow: hidden;
-  @media (max-width: ${({ theme }) => theme.tablet}) {
-    height: 50vh;
-  }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    height: 35.5vh;
-  }
-  @media (max-width: 474px) {
-    height: 45.5vh;
-  }
-  @media (max-width: 375px) {
-    height: 55.5vh;
-  }
-  @media (max-width: 320px) {
-    height: 55.5vh;
-  }
-`;
-
-const Presentation = styled.div`
-  padding: 10px;
-  background: transparent;
-  position: relative;
-  top: 150px;
-  z-index: 5;
-  @media (max-width: ${({ theme }) => theme.tablet}) {
-    /* margin-right: 10px; */
-  }
-
-  h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    color: ${(props) => props.theme.orange};
-    letter-spacing: 5px;
-    margin-bottom: 60px;
-
-    @media (max-width: ${({ theme }) => theme.tablet}) {
-      font-size: 2.5rem;
-      color: ${(props) => props.theme.orange};
-      letter-spacing: 4px;
-    }
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      text-align: center;
-    }
-  }
-  p {
-    font-size: 1.7rem;
-    @media (max-width: ${({ theme }) => theme.tablet}) {
-      font-size: 1.2rem;
-    }
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      text-align: center;
-    }
-  }
-`;
-const Pub = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-  background: transparent;
-  position: relative;
-  top: 150px;
-  z-index: 5;
-`;
-
+import {
+  JumboStyle,
+  Pub,
+  Overlay,
+  Presentation,
+} from "../styles/JumbotronStyle";
 const Jumbotron = () => {
   return (
     <JumboStyle>

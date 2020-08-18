@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import axios from "axios";
 import styled from "styled-components";
@@ -58,8 +59,37 @@ const TopRated = () => {
 };
 
 const CardUiFilm = ({ image, titre }) => {
+  const animation = useAnimation();
+  const [contentRef, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      animation.start("visible");
+    }
+  }, [animation, inView]);
   return (
-    <CardContainer className="text-center">
+    <CardContainer
+      ref={contentRef}
+      animate={animation}
+      initial="hidden"
+      variants={{
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.7,
+            ease: [0.6, 0.05, -0.01, 0.9],
+          },
+        },
+        hidden: {
+          opacity: 0,
+          y: 72,
+        },
+      }}
+      className="text-center"
+    >
       <img src={image} alt="image" />
       <h4>{titre} </h4>
     </CardContainer>

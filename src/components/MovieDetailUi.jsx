@@ -63,13 +63,13 @@ const MovieDetailUi = (props) => {
         width: 250px;
       }
       @media (max-width: 474px) {
-        width: 230px;
+        width: 200px;
       }
       @media (max-width: 375px) {
-        width: 200px;
+        width: 180px;
       }
       @media (max-width: 320px) {
-        width: 200px;
+        width: 160px;
       }
     }
   `;

@@ -10,8 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     background-color: #051321;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    cursor: none;
+    font-family: 'Baloo Tamma 2', cursive;
     overflow-x: hidden;
     ::-webkit-scrollbar {
         width: 10px;

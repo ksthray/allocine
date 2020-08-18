@@ -34,13 +34,62 @@ const NewsFilms = () => {
     fetchData();
   }, []);
 
-  const settings = {
+  const [settings, setSettings] = useState({
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-  };
+  });
+
+  const media = window.matchMedia("(max-width: 575px)");
+
+  useEffect(() => {
+    window.onload = () => {
+      if (media.matches) {
+        setSettings({
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        });
+        console.log("hello change");
+      } else {
+        setSettings({
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        });
+      }
+      window.addEventListener("resize", () => {
+        if (media.matches) {
+          setSettings({
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          });
+          console.log("hello change");
+        } else {
+          setSettings({
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+          });
+        }
+
+        return () => {
+          window.removeEventListener("resize");
+        };
+      });
+    };
+  }, []);
   return (
     <Section>
       <Title title="les nouveaux films" />

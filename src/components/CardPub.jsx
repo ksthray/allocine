@@ -2,8 +2,9 @@ import React from "react";
 
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-import photo from "../images/steven.jpg";
+import photo from "../images/endgame.png";
 
 const CardContainer = styled(motion.div)`
   width: 300px;
@@ -81,14 +82,19 @@ const CardPub = () => {
         </CardImg>
         <CardBody>
           <CardTitle>
-            Avengers :<strong>Endgame</strong>{" "}
+            Avengers : <strong>Endgame</strong>{" "}
           </CardTitle>
           <CardText>
-            Le Titan Thanos, ayant réussi à s'approprier les six Pierres d
-            'Infinité et à les réunir sur le Gantelet doré, a pu réaliser son
-            objectif de ...
+            After the devastating events of Avengers: Infinity War, the universe
+            is in ruins due to the efforts of the Mad Titan, Thanos. With the
+            help of remaining allies...
           </CardText>
-          <Button>Voire le film</Button>
+          <Link
+            style={{ color: "#ddd", textDecoration: "none" }}
+            to="/movie/299534"
+          >
+            <Button>Voire le film</Button>
+          </Link>
         </CardBody>
       </CardContainer>
     </div>

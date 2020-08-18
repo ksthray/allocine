@@ -16,6 +16,7 @@ import {
 } from "../styles/HeaderStyle";
 //react router dom link
 import { Link, NavLink } from "react-router-dom";
+import { Spinner } from "reactstrap";
 
 import MenuHumb from "./HumburgeurMenu/Menu";
 import Burger from "./HumburgeurMenu/Burger";
@@ -33,10 +34,14 @@ const parent = {
 
 const Header = () => {
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const searchQuery = (query) => {
-    history.push(`/search/${query}`);
-    window.location.reload(false);
+    setLoading(true);
+    setTimeout(() => {
+      history.push(`/search/${query}`);
+      window.location.reload(false);
+    }, 1500);
   };
 
   const [change, setChange] = useState({
@@ -108,13 +113,20 @@ const Header = () => {
           </Menu>
           <Search>
             <Input
-              placeholder="rechercher un film"
+              placeholder="Rechercher..."
               name="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             <Icon onClick={() => searchQuery(query)}>
-              <FaSearch />
+              {loading ? (
+                <Spinner
+                  style={{ position: "relative", top: "-8px" }}
+                  color="dark"
+                />
+              ) : (
+                <FaSearch />
+              )}
             </Icon>
           </Search>
           <MenuHumb open={open} setOpen={setOpen} />
